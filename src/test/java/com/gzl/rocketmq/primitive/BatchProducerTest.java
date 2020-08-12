@@ -7,7 +7,7 @@ import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.common.message.Message;
 import org.junit.Test;
 
-import com.gzl.rocketmq.base.ConfigConst;
+import com.gzl.rocketmq.consts.ConfigConst;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -22,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 public class BatchProducerTest {
 
     /**
-     * 总数据量小于4M的消息可以直接批量发送
+     * 总数据量小于4MB的消息可以直接批量发送
      */
     @Test
     @SneakyThrows

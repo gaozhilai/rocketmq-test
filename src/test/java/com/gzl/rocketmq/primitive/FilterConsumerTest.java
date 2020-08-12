@@ -11,7 +11,7 @@ import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
 import org.apache.rocketmq.common.message.MessageExt;
 import org.junit.Test;
 
-import com.gzl.rocketmq.base.ConfigConst;
+import com.gzl.rocketmq.consts.ConfigConst;
 
 import lombok.SneakyThrows;
 

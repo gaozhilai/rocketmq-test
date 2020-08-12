@@ -5,7 +5,7 @@ import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.common.message.Message;
 import org.junit.Test;
 
-import com.gzl.rocketmq.base.ConfigConst;
+import com.gzl.rocketmq.consts.ConfigConst;
 
 /**
  * No Description

@@ -3,14 +3,13 @@ package com.gzl.rocketmq.primitive;
 import java.util.Arrays;
 import java.util.List;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
-import org.apache.rocketmq.client.producer.MessageQueueSelector;
 import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.remoting.common.RemotingHelper;
 import org.joda.time.DateTime;
 import org.junit.Test;
 
-import com.gzl.rocketmq.base.ConfigConst;
+import com.gzl.rocketmq.consts.ConfigConst;
 
 import lombok.Data;
 import lombok.SneakyThrows;

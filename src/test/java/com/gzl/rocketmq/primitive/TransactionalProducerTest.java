@@ -18,7 +18,7 @@ import org.apache.rocketmq.common.message.MessageExt;
 import org.apache.rocketmq.remoting.common.RemotingHelper;
 import org.junit.Test;
 
-import com.gzl.rocketmq.base.ConfigConst;
+import com.gzl.rocketmq.consts.ConfigConst;
 
 import lombok.SneakyThrows;
 
@@ -31,6 +31,10 @@ import lombok.SneakyThrows;
 public class TransactionalProducerTest {
 
     /**
+     * 在初次接触事务消息的时候感觉事务消息完全可以用本地事务执逻辑之后再发送消息的方式代替, 经过思考发现普通的方式, 不管在本地事务前
+     * 发送消息还是本地事务后发送消息, 都有数据不一致的可能性, 而事务消息轻量的解决了这个问题. 经过跟了解RocketMQ比较多的大牛求证, 我的
+     * 想法是对的, 在私信求证过程中, 突然发现大牛名字很眼熟, 一看居然是我正在看的<<RocketMQ技术内幕>>书籍作者丁威.
+     *
      * RocketMQ4.3开始开源的事务消息部分, 很好的简化了微服务中多服务数据一致性问题
      * 在微服务架构的系统中, 一个业务导致的数据库修改操作可能会跨服务, 每个服务所在数据库甚至都不同
      * 以对数据一致性要求很高的转账操作为例, 假设转账扣款操作与增加余额操作在两个服务里, 那么过程如下
@@ -148,7 +152,7 @@ public class TransactionalProducerTest {
             int value = transactionIndex.getAndIncrement();
             int status = value % 3;
             localTrans.put(msg.getTransactionId(), status);
-            //
+            // 本地事务执行完毕后返回UNKONW, 测试broker主动回调查询事务执行结果的情况
             return LocalTransactionState.UNKNOW;
         }
 

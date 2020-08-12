@@ -10,7 +10,7 @@ import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
 import org.apache.rocketmq.common.message.MessageExt;
 import org.junit.Test;
 
-import com.gzl.rocketmq.base.ConfigConst;
+import com.gzl.rocketmq.consts.ConfigConst;
 
 import lombok.SneakyThrows;
 
@@ -30,7 +30,6 @@ public class ConsumerTest {
     public void testConsumer() {
         // 实例化消费者
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer(ConfigConst.CONCUMER_GROUP);
-
         // 设置NameServer的地址
         consumer.setNamesrvAddr(ConfigConst.NAMESVR_ADDR);
         // 订阅一个或者多个Topic，以及Tag来过滤需要消费的消息

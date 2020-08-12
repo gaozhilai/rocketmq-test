@@ -1,4 +1,4 @@
-package com.gzl.rocketmq.base;
+package com.gzl.rocketmq.consts;
 
 import org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException;
 
